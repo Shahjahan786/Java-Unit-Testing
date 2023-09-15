@@ -22,7 +22,8 @@ public class VolcanoAnalyzer {
 
     public void loadVolcanoes(Optional<String> pathOpt) throws IOException, URISyntaxException {
         try{
-            String path = pathOpt.orElse("volcano.json");
+         
+        String path = pathOpt.orElse("volcano.json");
             URL url = this.getClass().getClassLoader().getResource(path);
             String jsonString = new String(Files.readAllBytes(Paths.get(url.toURI())));
             ObjectMapper objectMapper = new ObjectMapper();
@@ -53,7 +54,9 @@ public class VolcanoAnalyzer {
     }
 
     Volcano mostDeadly(){
-        return volcanos.stream().filter(x -> x.getDEATHS().equals("30000") ).findFirst().get();
+         List<Volcano> sorted =  volcanos.stream().sorted((s1, s2) -> Double.compare(Double.parseDouble("0"+s2.getDEATHS()), (Double.parseDouble("0"+s1.getDEATHS())))).collect(Collectors.toList());
+    
+        return sorted.get(0);
     }
 
     double causedTsunami(){

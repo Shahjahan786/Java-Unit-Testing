@@ -67,7 +67,7 @@ public class VolcanoAnalyzerTests {
 
         //Execute
         String[] actual = va.highVEI();
-        sorted
+     
         //Assert
         assertEquals( expected.length, actual.length, "should have 39 volcanoes");
         assertArrayEquals(expected, actual, "should have the correct volcanoes");
@@ -104,7 +104,7 @@ public class VolcanoAnalyzerTests {
         assertEquals( expected.getLocation(), actual.getLocation(), "should have correct Location");
         assertEquals( expected.getCountry(), actual.getCountry(), "should have correct Country");
         assertEquals( expected.getLatitude(), actual.getLatitude(), "should have correct Latitude");
-        assertEquals( expected.getLongitude(sorted), actual.getLongitude(), "should have correct Longitude");
+        assertEquals( expected.getLongitude(), actual.getLongitude(), "should have correct Longitude");
         assertEquals( expected.getElevation(), actual.getElevation(),"should have correct Elevation" );
         assertEquals( expected.getType(), actual.getType(), "should have correct Type");
         assertEquals( expected.getVEI(), actual.getVEI(), "should have correct VEI");
@@ -119,7 +119,7 @@ public class VolcanoAnalyzerTests {
         double expected = 17;
 
         //Execute
-        double actual = va.causedTsunami();sorted
+        double actual = va.causedTsunami();
 
         //Assert
         assertEquals( expected, actual, .1, "should be about 17.0 percent");
@@ -240,7 +240,7 @@ public class VolcanoAnalyzerTests {
         String[] actual = va.topAgentsOfDeath();
 
         //Assert
-        assertEquals( expected.length, actual.length, "should have 5 Agents of Death");
+        //assertEquals( expected.length, actual.length, "should have 5 Agents of Death");
         assertArrayEquals(expected, actual, "should have the correct Agents of Death");
 
         //Teardown
